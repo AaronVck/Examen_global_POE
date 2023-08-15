@@ -2,8 +2,11 @@
 
 
 {% block content %}
-    {{error}}
-    <h1>{{task.title}}</h1>
+    <main class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                {{error}}
+    <h1 class="text-secondary">{{task.title}}</h1>
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
@@ -23,6 +26,9 @@
             Delete
         </button>
     </form>
+            </div>
+        </div>
+    </main>
 
 
 {% endblock %}
