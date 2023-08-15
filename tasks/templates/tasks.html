@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Tasks Pending</h1>
+
+<ul>
+
+    {% for task in tasks %}
+    {% if task.datecompleted %}
+    {% else %}
+    <li>
+        <a href="{% url 'task_detail' task.id %}">
+            {% if task.important %}
+            <strong>Title: {{task.title}}</strong>
+            {% else %}
+            {{task.title}}
+            {% endif %}
+        </a>
+        
+        <p>Description: {{task.description}}</p>
+        <p>Created by: {{task.user.username}}</p>
+
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+{% endblock %}
